@@ -24,16 +24,16 @@ const createEmployeeRecords = (arr) => {
     return employeeRecordArray;
 };
 
-const createTimeInEvent = (employee, dateStamp) => {
+const createTimeInEvent = (employee, date) => {
     employee.timeInEvents.push({
       type: 'TimeIn',
-      hour: parseInt(dateStamp.split(' ')[1]),
-      date: dateStamp.split(' ')[0],
+      hour: parseInt(date.split(' ')[1]),
+      date: date.split(' ')[0],
 });  
     return employee;
 };
 
-const createTimeOutEvent = (employee, dateStamp) => {
+const createTimeOutEvent = (employee, date) => {
     employee.timeOutEvents.push({
       type: 'TimeOut',
       hour: parseInt(dateStamp.split(' ')[1]),
