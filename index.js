@@ -36,16 +36,16 @@ const createTimeInEvent = (employee, date) => {
 const createTimeOutEvent = (employee, date) => {
     employee.timeOutEvents.push({
       type: 'TimeOut',
-      hour: parseInt(dateStamp.split(' ')[1]),
-      date: dateStamp.split(' ')[0],
+      hour: parseInt(date.split(' ')[1]),
+      date: date.split(' ')[0],
 });  
     return employee;
 };
 
 
-const hoursWorkedOnDate = (employee, dateGiven) => {
-    let timeIn = employee.timeInEvents.find(time => time.date === dateGiven);              
-    let timeOut = employee.timeOutEvents.find(time => time.date === dateGiven);             
+const hoursWorkedOnDate = (employee, date) => {
+    let timeIn = employee.timeInEvents.find(time => time.date === date);              
+    let timeOut = employee.timeOutEvents.find(time => time.date === date);             
       return (timeOut.hour - timeIn.hour) / 100;                                              
 };
 
@@ -60,11 +60,11 @@ const allWagesFor = (employee) => {
     return sum;
 };
 
-const findEmployeeByFirstName = (employeeArr, name) => {
-    return employeeArr.find(employee => employee.firstName === name);
+const findEmployeeByFirstName = (employees, name) => {
+    return employees.find(employee => employee.firstName === name);
 };
 
-const calculatePayroll = (employeeArr) => {
-    let sum = employeeArr.reduce((acc, curr) => (acc + allWagesFor(curr)), 0);
+const calculatePayroll = (employees) => {
+    let sum = employees.reduce((acc, curr) => (acc + allWagesFor(curr)), 0);
     learnreturn sum;
 };
