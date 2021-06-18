@@ -66,5 +66,5 @@ const findEmployeeByFirstName = (employees, name) => {
 
 const calculatePayroll = (employees) => {
     let sum = employees.reduce((acc, curr) => (acc + allWagesFor(curr)), 0);
-    learnreturn sum;
+    return sum;
 };
